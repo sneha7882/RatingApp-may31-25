@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Rating App by sneha</title>
+		<style>
+			*{text-align :center; font-size:40px; font-family:Cambria;}
+			body{background-color:lightyellow;}
+			h1{background-color:black;color:white; margin:auto;width:70%; border-radius:30px;}
+.btn{background-color:red; color:white; size:60px;}
+.btn:hover{background-color:lightblue; border-radius:70px;}
+		</style>
+		
+	</head>
+	<body>
+	<h1>Rating APP</h1><br/>
+	<form onsubmit="show()">
+		<input type="number" id="rating" placeholder="Enter rating"><br/> <br/>
+		<input type="submit" value ="M1" class=btn>
+		<input type="submit" value ="M2" class=btn>
+		<input type="submit" value ="M3" class=btn>
+	</form>
+	<h2 id="msg"/>
+	<script>
+	
+		function show(){
+		event.preventDefault();		
+		let rating = document.getElementById("rating");
+		let msg = document.getElementById("msg");
+		if(rating.value==="")
+		{
+			alert("pleas enter rating");
+			msg.innerHTML="";
+			rating.focus();
+			return;
+			
+		}
+		let r = parseInt(rating.value);
+		if((r<1)||(r>5))
+		{
+			alert("rating should be between 1 to 5 ");
+			msg.innerHTML="";
+			rating.value="";
+			rating.focus();
+			return;
+		}
+		let action = document.activeElement.value;
+		let res="";
+			if(action==="M1")
+			{
+				if(r===5)  res="excellent";
+			    else if(r===4) res="excellent";
+			    else if(r===3) res="okok";
+                            else if(r===2) res="okok";
+			     else  res="Poor";	
+msg.innerHTML="M1->"+res; 	
+			}
+			
+			else if(action==="M2")
+			{
+				if((r===5)||(r===4))
+				 res="excellent";
+			        else if((res===3)||(res===2))
+ 				res="okok";
+				else res="poor";
+				msg.innerHTML="M2->"+res;
+			}
+			else if(action="M3")
+			{
+				switch(r)
+				{
+					case 5:
+					case 4:
+					res="excellent";
+					break;
+					case 3:
+					case 2:
+					res="okok";
+					break;
+					case 1:
+					res="poor";
+
+				}
+				msg.innerHTML="M3->"+res;
+				
+			}
+
+	
+}
+
+	</script>
+	</body>
+<html>
